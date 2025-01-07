@@ -3,6 +3,7 @@ package com.kh.domain;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -19,10 +20,12 @@ import lombok.ToString;
 //@ToString
 //@EqualsAndHashCode(of="boardNo")
 @Data
+@Builder
 public class Board {
 	private int boardNo;
 	@NonNull
 	private String title;
 	private String content;
+	private String writer;
 	private Date regDate;
 }
