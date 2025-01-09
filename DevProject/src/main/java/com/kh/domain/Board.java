@@ -20,10 +20,8 @@ import lombok.ToString;
 //@ToString
 //@EqualsAndHashCode(of="boardNo")
 @Data
-@Builder
 public class Board {
 	private int boardNo;
-	@NonNull
 	private String title;
 	private String content;
 	private String writer;

@@ -99,7 +99,7 @@ public class BoardController {
 	 * return "list"; }
 	 */
 
-	@PutMapping(value = "/{boardno}")
+	@PostMapping(value = "/{boardno}")
 	public ResponseEntity<String> modify(@PathVariable("boardno") int boardno, @RequestBody Board board) {
 		log.info("boardno = " + boardno);
 		log.info("board = " + board);
@@ -108,12 +108,26 @@ public class BoardController {
 		return entity;
 	}
 
-	@PutMapping(value = "/{boardno}", headers = "X-HTTP-Method-Override=PUT")
+	@PutMapping(value = "/{boardno}")
 	public ResponseEntity<String> modifyByHeader(@PathVariable("boardno") int boardno, @RequestBody Board board) {
 		log.info("header boardno = " + boardno);
 		log.info("header board = " + board);
 
 		ResponseEntity<String> entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		return entity;
+	}
+	
+	@GetMapping(value = "/{boardno}", produces = "application/json")
+	public ResponseEntity<Board> boardGetOne(@PathVariable("boardno") int boardno) {
+		log.info("get boardno = " + boardno);
+
+		Board board = new Board(); 
+		board.setTitle("제목"); 
+		board.setContent("내용입니다."); 
+		board.setWriter("홍길동"); 
+		board.setRegDate(new Date()); 
+		ResponseEntity<Board> entity = new ResponseEntity<Board>(board, HttpStatus.OK); 
+		
 		return entity;
 	}
 
