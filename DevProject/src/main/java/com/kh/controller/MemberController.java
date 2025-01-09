@@ -1,35 +1,22 @@
 package com.kh.controller;
 
 import java.io.File;
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.kh.domain.Address;
-import com.kh.domain.Board;
 import com.kh.domain.FileMember;
 import com.kh.domain.Member;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -41,6 +28,17 @@ public class MemberController {
 	public String insertMember(Member member) {
 		log.info("insertMember");
 		return "home";
+	}
+	@PostMapping(value = "/redirect")
+	public String redirectMember(Member member, RedirectAttributes rttr) {
+		log.info("redirectMember");
+		rttr.addFlashAttribute("member", member);
+		return "redirect:/member/result";
+	}
+	@GetMapping(value = "/result")
+	public String resultMember() {
+		log.info("resultMember");
+		return "result";
 	}
 
 	@RequestMapping(value = "/registerFileUp01", method = RequestMethod.POST)
