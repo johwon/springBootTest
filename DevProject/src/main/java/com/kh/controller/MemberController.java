@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -37,20 +38,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 
 	@PostMapping(value = "/insert")
-	public String insertMember(Member member, Address address) {
+	public String insertMember(Member member) {
 		log.info("insertMember");
-		log.info("member.getUserId() = " + member.getUserId());
-		log.info("member.getPassword() = " + member.getPassword());
-		log.info("member.getCoin() = " + member.getCoin());
-//		log.info("member.getCar() = " + member.getCar());
-//		if(member.getCar()!=null) {
-//			for(String s : member.getCar()) {
-//				log.info(s);
-//			}
-//		}
-		log.info("member.toString : " + member);
-		log.info("address.toString : " + address);
-
 		return "home";
 	}
 
