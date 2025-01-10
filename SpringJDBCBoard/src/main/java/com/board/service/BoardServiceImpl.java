@@ -1,6 +1,5 @@
 package com.board.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +21,22 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public List<Board> list() throws Exception {
-		return dao.list;
+		return dao.list();
 	}
 
+	@Override
+	public Board read(Board board) throws Exception {
+		return dao.read(board);
+	}
 
-	
-	
+	@Override
+	public boolean remove(Board board) throws Exception {
+		return dao.remove(board);
+	}
+
+	@Override
+	public int modify(Board board) throws Exception {
+		return dao.modify(board);
+	}
+
 }
