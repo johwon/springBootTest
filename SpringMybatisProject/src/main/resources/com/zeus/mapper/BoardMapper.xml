@@ -6,7 +6,7 @@
 		VALUES( mybatisboard_seq.NEXTVAL, #{title}, #{content},	#{writer})
 	</insert>
 	
-	<select id="read" resultType="com.zeus.domain.Board">
+	<select id="read" resultType="Board">
 		SELECT board_no, title, content, writer, reg_date FROM mybatisboard
 		WHERE board_no = #{boardNo}
 	</select>
@@ -21,7 +21,7 @@
 		DELETE FROM mybatisboard WHERE board_no = #{boardNo}
 	</delete>
 	
-	<select id="list" resultType="com.zeus.domain.Board"> 
+	<select id="list" resultType="Board"> 
 		 <![CDATA[ 
 		  SELECT board_no, title, content, writer, reg_date 
 		  FROM mybatisboard WHERE board_no > 0 
