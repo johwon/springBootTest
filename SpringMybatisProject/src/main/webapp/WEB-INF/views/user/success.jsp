@@ -3,11 +3,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyBatis USER</title>
+<title>MyBatis 게시판</title>
 </head>
 <body>
 	<div>
 		<h2>${msg}</h2>
+		<br> <a href="/user/list">List</a>
 	</div>
 </body>
 </html>

@@ -21,7 +21,7 @@
 </head>
 <body>
 	<h3>회원 등록</h3>
-	<form:form modelAttribute="member" action="/user/register">
+	<form:form modelAttribute="member" action="register">
 		<table>
 			<tr>
 				<td>userid</td>
@@ -33,7 +33,7 @@
 				<td><form:input path="userPw" /></td>
 				<td><font color="red"><form:errors path="userPw" /></font></td>
 			</tr>
-			<tr>E
+			<tr>
 				<td>username</td>
 				<td><form:input path="userName" /></td>
 				<td><font color="red"><form:errors path="userName" /></font></td>
@@ -41,7 +41,7 @@
 		</table>
 	</form:form>
 	<div>
-		<button type="button" id="btnRegister">등록</button>
+		<button type="submit" id="btnRegister">등록</button> 
 	</div>
 </body>
 </html>

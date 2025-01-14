@@ -6,9 +6,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
-	<!-- <typeAliases>
-		<typeAlias alias="board" type="com.zeus.domain.Board" />
-	</typeAliases> -->
 	<!-- TypeAlias로 맵핑 파일에서 반복적으로 사용될 패키지의 이름을 정의한다. -->
 	<typeAliases>
 		<package name="com.zeus.domain" />
