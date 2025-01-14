@@ -2,6 +2,7 @@ package com.zeus.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.UUID;
@@ -86,16 +87,22 @@ public class ItemController {
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modify(Item item, Model model) throws Exception {
 		MultipartFile file = item.getPicture();
-
+		
 		if (file != null && file.getSize() > 0) {
+			//이전값없애기 여기서
+			String deletePath = "c:/upload//"+item.getPictureUrl();
+			File deleteFile = new File(deletePath);
+			deleteFile.delete();
+			
 			log.info("originalName: " + file.getOriginalFilename());
 			log.info("size: " + file.getSize());
 			log.info("contentType: " + file.getContentType());
 
-			//이전값없애기 여기서
 			String createdFileName = uploadFile(file.getOriginalFilename(), file.getBytes());
 
 			item.setPictureUrl(createdFileName);
+			
+			
 		}
 		this.itemService.modify(item);
 		model.addAttribute("msg", "수정이 완료되었습니다.");
