@@ -38,6 +38,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(Model model) throws Exception {
+		model.addAttribute("member", new Member());
 		model.addAttribute("list", service.list());
 	}
 
@@ -63,6 +64,15 @@ public class MemberController {
 		service.modify(member);
 		model.addAttribute("msg", "수정이 완료되었습니다.");
 		return "user/success";
+	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(String userId, Model model) throws Exception {
+		Member member = new Member();
+		member.setUserId(userId);
+		model.addAttribute("member", member);
+		model.addAttribute("list",service.search(userId));
+		return "user/list";
 	}
 
 }

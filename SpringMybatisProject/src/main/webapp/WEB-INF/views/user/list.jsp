@@ -11,6 +11,9 @@
 </head>
 <body>
 	<h3>회원 목록</h3>
+	<form:form modelAttribute="member" method="POST" action="search">
+		userid:<form:input type="text" path="userId"/><input type="submit" value="검색" />
+	</form:form>
 	<a href="/user/register">New</a>
 
 	<table border="1">

@@ -20,4 +20,6 @@ public interface MemberMapper {
 	public void delete(int userNo) throws Exception;
 
 	public void deleteAuth(int userNo) throws Exception;
+	
+	public List<Member> search(String input) throws Exception;
 }

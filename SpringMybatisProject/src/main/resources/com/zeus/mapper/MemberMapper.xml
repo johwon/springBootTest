@@ -46,6 +46,20 @@
 		FROM mybatismember
 		ORDER BY reg_date DESC
 	</select>
+	
+	<select id="search" resultType="Member">
+		<![CDATA[
+		SELECT user_no, user_id, user_pw, user_name, reg_date
+		FROM mybatismember
+		WHERE 1 = 1
+		]]>
+		<if test="input != null and input != ''">
+		AND user_id LIKE CONCAT('%', CONCAT(#{input}, '%'))
+		</if>
+		<![CDATA[
+		ORDER BY reg_date DESC
+		]]>
+	</select>
 
 	<update id="update">
 		UPDATE mybatismember
