@@ -119,9 +119,9 @@ public class ItemController {
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(Item item, Model model) throws Exception {
 		String deletePath = "c:/upload//"+item.getPictureUrl();
-		log.info("remove:"+deletePath);
 		File deleteFile = new File(deletePath);
 		deleteFile.delete();
+		
 		this.itemService.remove(item.getItemId());
 
 		model.addAttribute("msg", "삭제가 완료되었습니다.");
