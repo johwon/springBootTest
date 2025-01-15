@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.zeus.common.exception.BoardRecordNotFoundException;
 import com.zeus.domain.Board;
 import com.zeus.mapper.BoardMapper;
 
@@ -28,7 +29,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board read(Integer boardNo) throws Exception {
 		log.info("read");
-		return mapper.read(boardNo);
+		Board board = mapper.read(boardNo);
+		//사용자가 정의한 예외처리를 진행
+		if(board==null) {
+			throw new BoardRecordNotFoundException(boardNo+"에 게시된 글이 없습니다.");
+		}
+		return board;
 	}
 
 	@Transactional
