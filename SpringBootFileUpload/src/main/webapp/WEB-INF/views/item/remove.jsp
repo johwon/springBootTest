@@ -28,9 +28,8 @@
 	<h2>상품 삭제</h2>
 	<form:form modelAttribute="item" action="remove">
 		<form:hidden path="itemId" />
+		<form:hidden path="pictureUrl" />
 		<table>
-
-
 			<tr>
 				<td>상품명</td>
 				<td><form:input path="itemName" disabled="true" /></td>

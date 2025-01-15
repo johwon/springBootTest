@@ -101,8 +101,6 @@ public class ItemController {
 			String createdFileName = uploadFile(file.getOriginalFilename(), file.getBytes());
 
 			item.setPictureUrl(createdFileName);
-			
-			
 		}
 		this.itemService.modify(item);
 		model.addAttribute("msg", "수정이 완료되었습니다.");
@@ -120,6 +118,10 @@ public class ItemController {
 	// 파일 삭제 (/WEB-INF/views/item/success.jsp)
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(Item item, Model model) throws Exception {
+		String deletePath = "c:/upload//"+item.getPictureUrl();
+		log.info("remove:"+deletePath);
+		File deleteFile = new File(deletePath);
+		deleteFile.delete();
 		this.itemService.remove(item.getItemId());
 
 		model.addAttribute("msg", "삭제가 완료되었습니다.");
