@@ -32,7 +32,7 @@ public class SecurityConfig {
 
 	@Autowired
 	DataSource dataSource;
-
+	
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		log.info("SecurityConfig");
