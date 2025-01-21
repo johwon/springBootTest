@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- 범용 spring 태그라이브러리를 선언한다. -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Image Shop</title>
+<title>메시지 처리</title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/menu.jsp" />
+	<main align="center">
 	<h1>
-		<!-- 메시지 프로퍼티 파일로부터 메시지 내용을 읽어온다. -->
+		환영합니다.<br>
 		<spring:message code="common.homeWelcome" />
 	</h1>
-	<P>${serverTime}</P>
+	<P>The time on the server is ${serverTime}.</P>
+	</main>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>
