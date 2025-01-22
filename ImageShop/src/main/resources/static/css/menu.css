@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.menu a{
+	width:30px;
+	text-decoration: none;
+	border-radius:5px;
+	padding: 8px;
+	background-color: gainsboro;
+	color: black;
+}

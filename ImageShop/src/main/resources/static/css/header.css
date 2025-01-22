@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.header a {
+	text-decoration: none;
+	border-radius:10px;
+	padding: 8px;
+	background-color: gainsboro;
+	color: white;
+}
+
+.header a:hover{
+	
+}

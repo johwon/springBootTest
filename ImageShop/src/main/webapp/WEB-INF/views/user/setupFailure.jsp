@@ -5,20 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메시지 처리</title>
-<link rel="stylesheet" href="/css/home.css" />
-<link rel="stylesheet" href="/css/carousel.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/user.css" />
+<script src=""></script>
+<title>Image Shop</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<jsp:include page="/WEB-INF/views/common/menu.jsp" />
-	<jsp:include page="/WEB-INF/views/common/carousel.jsp" /> 
 	<main align="center">
-	<h1>
-		환영합니다.<br>
-		<spring:message code="common.homeWelcome" />
-	</h1>
-	<P>The time on the server is ${serverTime}.</P>
+		<div> 
+<h2><spring:message code="common.cannotSetupAdmin" /></h2> 
+<a href="/"><spring:message code="action.home" /></a> 
+</div> 
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>

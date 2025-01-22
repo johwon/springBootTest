@@ -16,11 +16,10 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
+		log.info("액세스 거부 처리기");
+		log.info("Redirect ... ");
 
-		log.info("CustomAccessDeniedHandler Access Denied Handler");
-		log.info("Redirect. /accessError ");
-
-		response.sendRedirect("/accessError");
+		response.sendRedirect("/error/accessError");
 	}
 
 }
