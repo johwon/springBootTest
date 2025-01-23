@@ -27,17 +27,17 @@
 				<tr>
 					<td><spring:message code="board.title" /></td>
 					<td><form:input path="title" /></td>
-					<td><font color="red"><form:errors path="title" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="title" /></font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="board.writer" /></td>
 					<td><form:input path="writer" readonly="true" /></td>
-					<td><font color="red"><form:errors path="writer" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="writer" /></font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="board.content" /></td>
 					<td><form:textarea path="content" /></td>
-					<td><font color="red"><form:errors path="content" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="content" /></font></td>
 				</tr>
 			</table>
 		</form:form>

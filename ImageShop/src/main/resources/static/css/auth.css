@@ -2,4 +2,16 @@
 
 table.auth_table{
 	margin:0 auto;
+	font-size:23px;
+}
+
+table.auth_table td:not([type="checkbox"]){
+	padding:15px;
+}
+
+table.auth_table input:not([type="checkbox"]) {
+	padding:10px;
+	font-size:20px;
+	border-radius:5px;
+	border: 1px solid rgb(211, 211, 211);
 }

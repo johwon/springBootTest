@@ -15,4 +15,10 @@
 			ORDER BY board_no DESC, reg_date DESC 
 		]]>
 	</select>
+ 
+	<!-- 게시글 상세 조회 -->
+	<select id="read" resultType="Board">
+		SELECT board_no, title, content, writer, reg_date
+		FROM board WHERE board_no = #{boardNo} 
+	</select>
 </mapper>

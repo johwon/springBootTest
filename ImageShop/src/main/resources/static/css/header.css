@@ -1,13 +1,43 @@
 @charset "UTF-8";
 
-.header a {
-	text-decoration: none;
-	border-radius:10px;
-	padding: 8px;
-	background-color: gainsboro;
-	color: white;
+* {
+	font-family: "Nanum Gothic"
 }
 
-.header a:hover{
-	
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	display: flex;
+}
+
+button {
+	font-size: 20px;
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.header {
+	height: 40px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.header a {
+	text-decoration: none;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 0px 8px;
+	background-color: rgb(58, 92, 245);
+	color: whitesmoke;
+}
+
+.header a:hover {
+	background-color: rgb(0, 42, 227);
 }

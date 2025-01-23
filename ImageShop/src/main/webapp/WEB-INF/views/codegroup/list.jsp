@@ -21,8 +21,8 @@
 		<h2>
 			<spring:message code="codegroup.header.list" />
 		</h2>
-		<a href="register"><spring:message code="action.new" /></a>
-		<table border="1" class="list_table">
+		<a href="register" id="codegroup_register">New</a>
+		<table class="list_table">
 			<tr>
 				<th align="center" width="160"><spring:message
 						code="codegroup.groupCode" /></th>

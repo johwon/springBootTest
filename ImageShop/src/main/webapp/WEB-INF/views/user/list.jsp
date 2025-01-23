@@ -21,9 +21,9 @@
 		<h2>
 			<spring:message code="user.header.list" />
 		</h2>
-		<a href="register"><spring:message code="action.new" /></a>
+		<a href="register" id="user_register">New</a>
 
-		<table border="1" class="user_table">
+		<table class="user_table">
 			<tr>
 				<th align="center" width="60"><spring:message code="user.no" /></th>
 				<th align="center" width="80"><spring:message

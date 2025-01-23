@@ -1,10 +1,19 @@
 @charset "UTF-8";
-
+.menu {
+	height:60px;
+	display: flex;
+	align-items: center;
+}
 .menu a{
+	font-size:23px;
 	width:30px;
 	text-decoration: none;
 	border-radius:5px;
-	padding: 8px;
-	background-color: gainsboro;
+	padding: 10px;
+	margin: 10px;
 	color: black;
+}
+
+.menu a:hover{
+	background-color: rgb(233, 233, 233);
 }

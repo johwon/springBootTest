@@ -26,23 +26,23 @@
 				<tr>
 					<td><spring:message code="user.userId" /></td>
 					<td><form:input path="userId" /></td>
-					<td><font color="red"><form:errors path="userId" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="userId"/></font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="user.userPw" /></td>
 					<td><form:input path="userPw" /></td>
-					<td><font color="red"><form:errors path="userPw" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="userPw" /></font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="user.userName" /></td>
 					<td><form:input path="userName" /></td>
-					<td><font color="red"><form:errors path="userName" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="userName" /></font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="user.job" /></td>
 					<td><form:select path="job" items="${jobList}"
 							itemValue="value" itemLabel="label" /></td>
-					<td><font color="red"><form:errors path="job" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="job" /></font></td>
 				</tr>
 			</table>
 		</form:form>

@@ -26,18 +26,18 @@
 					<td><spring:message code="codedetail.groupCode" /></td>
 					<td><form:select path="groupCode" items="${groupCodeList}"
 							itemValue="value" itemLabel="label" readonly="true" /></td>
-					<td><font color="red"><form:errors path="groupCode" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="groupCode" /></font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="codedetail.codeValue" /></td>
 					<td><form:input path="codeValue" /></td>
-					<td><font color="red"><form:errors path="codeValue" />
+					<td class="hidden"><font color="red"><form:errors path="codeValue" />
 					</font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="codedetail.codeName" /></td>
 					<td><form:input path="codeName" /></td>
-					<td><font color="red"><form:errors path="codeName" />
+					<td class="hidden"><font color="red"><form:errors path="codeName" />
 					</font></td>
 				</tr>
 			</table>

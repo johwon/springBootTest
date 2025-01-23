@@ -22,12 +22,12 @@
 				<tr>
 					<td><spring:message code="codegroup.groupCode" /></td>
 					<td><form:input path="groupCode" /></td>
-					<td><font color="red"><form:errors path="groupCode" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="groupCode" /></font></td>
 				</tr>
 				<tr>
 					<td><spring:message code="codegroup.groupName" /></td>
 					<td><form:input path="groupName" /></td>
-					<td><font color="red"><form:errors path="groupName" /></font></td>
+					<td class="hidden"><font color="red"><form:errors path="groupName" /></font></td>
 				</tr>
 			</table>
 		</form:form>

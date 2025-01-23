@@ -51,4 +51,10 @@ public class BoardController {
 	public void list(Model model) throws Exception {
 		model.addAttribute("list", service.list());
 	}
+
+	// 게시글 상세 페이지
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void read(int boardNo, Model model) throws Exception {
+		model.addAttribute(service.read(boardNo));
+	}
 }

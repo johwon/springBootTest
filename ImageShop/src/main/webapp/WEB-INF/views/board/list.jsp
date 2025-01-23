@@ -25,10 +25,10 @@
 		</h2>
 
 		<sec:authorize access="hasRole('ROLE_MEMBER')">
-			<a href="/board/register"><spring:message code="action.new" /></a>
+			<a href="/board/register" id="board_register">New</a>
 		</sec:authorize>
 
-		<table border="1" class="board_table">
+		<table class="board_table">
 			<tr>
 				<th align="center" width="80"><spring:message code="board.no" /></th>
 				<th align="center" width="320"><spring:message
