@@ -23,11 +23,18 @@
 		<h2>
 			<spring:message code="board.header.list" />
 		</h2>
-
+		<!-- 검색 폼을 만든다. -->
+		<form:form modelAttribute="pgrq" method="get" action="/board/list${pgrq.toUriStringByPage(1)}">
+			<form:select path="searchType" items="${searchTypeCodeValueList}"
+				itemValue="value" itemLabel="label" />
+			<form:input path="keyword" />
+			<button id='searchBtn'>
+				<spring:message code="action.search" />
+			</button>
+		</form:form>
 		<sec:authorize access="hasRole('ROLE_MEMBER')">
 			<a href="/board/register" id="board_register">New</a>
 		</sec:authorize>
-
 		<table class="board_table">
 			<tr>
 				<th align="center" width="80"><spring:message code="board.no" /></th>
@@ -49,7 +56,8 @@
 						<tr>
 							<td align="center">${board.boardNo}</td>
 							<td align="left"><a
-								href='/board/read?boardNo=${board.boardNo}'>${board.title}</a></td>
+								href="/board/read${pgrq.toUriString(pgrq.page)}&boardNo=${board.boardNo}">
+								<c:out value="${board.title}" /></a></td>
 							<td align="right">${board.writer}</td>
 							<td align="center"><fmt:formatDate
 									pattern="yyyy-MM-dd HH:mm" value="${board.regDate}" /></td>
@@ -58,6 +66,25 @@
 				</c:otherwise>
 			</c:choose>
 		</table>
+		<!-- 페이징 네비게이션 -->
+		<div>
+			<c:if test="${pagination.prev}">
+				<a
+					href="/board/list${pagination.makeQuery(pagination.startPage - 1)}">&laquo;</a>
+			</c:if>
+			<c:forEach begin="${pagination.startPage }"
+				end="${pagination.endPage }" var="idx">
+				<c:if test="${pagination.pageRequest.page eq idx}">
+					<a href="/board/list${pagination.makeQuery(idx)}">[${idx}]</a>
+				</c:if>
+				<c:if test="${!(pagination.pageRequest.page eq idx)}">
+					<a href="/board/list${pagination.makeQuery(idx)}">${idx}</a>
+				</c:if>
+			</c:forEach>
+			<c:if test="${pagination.next && pagination.endPage > 0}">
+				<a href="${pagination.makeQuery(pagination.endPage +1)}">&raquo;</a>
+			</c:if>
+		</div>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>

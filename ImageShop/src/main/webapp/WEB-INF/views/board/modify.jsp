@@ -20,17 +20,19 @@
 	<jsp:include page="/WEB-INF/views/common/menu.jsp" />
 	<main align="center">
 		<h2>
-			<spring:message code="board.header.read" />
+			<spring:message code="board.header.modify" />
 		</h2>
-		<form:form modelAttribute="board">
+
+		<form:form modelAttribute="board" action="modify">
 			<form:hidden path="boardNo" />
 			<!-- 현재 페이지 번호와 페이징 크기 그리고 검색유형, 검색어를 숨겨진 필드 요소를 사용하여 전달한다. -->
 			<input type="hidden" name="page" value="${pgrq.page}">
 			<input type="hidden" name="sizePerPage" value="${pgrq.sizePerPage}">
+
 			<table class="board_table">
 				<tr>
 					<td><spring:message code="board.title" /></td>
-					<td><form:input path="title" readonly="true" /></td>
+					<td><form:input path="title" /></td>
 					<td class="hidden"><font color="red"><form:errors
 								path="title" /></font></td>
 				</tr>
@@ -42,7 +44,7 @@
 				</tr>
 				<tr>
 					<td><spring:message code="board.content" /></td>
-					<td><form:textarea path="content" readonly="true" /></td>
+					<td><form:textarea path="content" /></td>
 					<td class="hidden"><font color="red"><form:errors
 								path="content" /></font></td>
 				</tr>
@@ -50,28 +52,20 @@
 		</form:form>
 		<div>
 			<sec:authentication property="principal" var="pinfo" />
-			<!-- principal 정보를 pinfo 변수에 저장 -->
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<button type="button" id="btnEdit">
-					<spring:message code="action.edit" />
-				</button>
-				<button type="button" id="btnRemove">
-					<spring:message code="action.remove" />
+				<button type="button" id="btnModify">
+					<spring:message code="action.modify" />
 				</button>
 			</sec:authorize>
 
 			<sec:authorize access="hasRole('ROLE_MEMBER')">
 				<c:if test="${pinfo.username eq board.writer}">
-					<button type="button" id="btnEdit">
-						<spring:message code="action.edit" />
-					</button>
-					<button type="button" id="btnRemove">
-						<spring:message code="action.remove" />
+					<button type="button" id="btnModify">
+						<spring:message code="action.modify" />
 					</button>
 				</c:if>
 			</sec:authorize>
-
-			<button type="submit" id="btnList">
+			<button type="button" id="btnList">
 				<spring:message code="action.list" />
 			</button>
 		</div>
@@ -80,27 +74,14 @@
 	<script>
 		$(document).ready(function() {
 			var formObj = $("#board");
-
-			// 현재 페이지 번호와 페이징 크기 
-			var pageObj = $("#page");
-			var sizePerPageObj = $("#sizePerPage");
-			var pageVal = pageObj.val();
-			var sizePerPageVal = sizePerPageObj.val();
-
-			$("#btnEdit").on("click", function() {
-				var boardNo = $("#boardNo");
-				var boardNoVal = boardNo.val();
-				self.location = "/board/modify?boardNo=" + boardNoVal;
-			});
-			$("#btnRemove").on("click", function() {
-				formObj.attr("action", "/board/remove");
+			$("#btnModify").on("click", function() {
 				formObj.submit();
 			});
 			$("#btnList").on("click", function() {
-				self.location = "/board/list";
+				// 페이징 관련 정보를 쿼리 파라미터로 전달한다. 
+				self.location = "/board/list${pgrq.toUriString()}";
 			});
 		});
 	</script>
-
 </body>
 </html>
