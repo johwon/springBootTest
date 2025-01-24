@@ -18,6 +18,9 @@
 				<!-- 공지사항을 메뉴에 추가한다. -->
 				<td><a href="/notice/list"><spring:message
 							code="menu.notice.member" /></a></td>
+				<!-- 상품 관리를 메뉴에 추가한다. -->
+				<td width="120"><a href="/item/list"><spring:message
+							code="menu.item.member" /></a></td>
 			</sec:authorize>
 			<!-- 인증된 사용자인 경우 true -->
 			<sec:authorize access="isAuthenticated()">
@@ -38,6 +41,10 @@
 					<!-- 공지사항을 메뉴에 추가한다. -->
 					<td><a href="/notice/list"><spring:message
 								code="menu.notice.admin" /></a></td>
+					<!-- 상품 관리를 메뉴에 추가한다. -->
+					<td width="120"><a href="/item/list"><spring:message
+								code="menu.item.member" /></a></td>
+
 				</sec:authorize>
 				<!-- 회원 권한을 가진 사용자인 경우 true -->
 				<sec:authorize access="hasRole('ROLE_MEMBER')">
@@ -47,6 +54,19 @@
 					<!-- 공지사항을 메뉴에 추가한다. -->
 					<td><a href="/notice/list"><spring:message
 								code="menu.notice.admin" /></a></td>
+					<!-- 상품 관리를 메뉴에 추가한다. -->
+					<td><a href="/item/list"><spring:message
+								code="menu.item.member" /></a></td>
+					<!-- 코인 충전과 충전 내역을 메뉴에 추가한다. -->
+					<td><a href="/coin/charge"><spring:message
+								code="menu.coin.charge" /></a></td>
+					<td><a href="/coin/list"><spring:message
+								code="menu.coin.list" /></a></td>
+					<!-- 구매 상품과 구매 내역을 메뉴에 추가한다. -->
+					<td><a href="/useritem/list"><spring:message
+								code="menu.useritem.list" /></a></td>
+					<td><a href="/coin/listPay"><spring:message
+								code="menu.coin.listPay" /></a></td>
 				</sec:authorize>
 			</sec:authorize>
 		</tr>
