@@ -49,9 +49,15 @@
 			var formObj = $("#chargeCoin");
 
 			$("#btnCharge").on("click", function() {
-				formObj.submit();
+				var amount = $("input[name='amount']").val();  // amount 값을 가져옴
+				if (amount) {
+					// amount 값을 쿼리 파라미터로 추가해서 checkout 페이지로 리디렉션
+					window.location.href = "checkout?amount=" + amount;
+				} else {
+					alert("금액을 입력해 주세요.");
+				}
 			});
-
+			
 			$("#btnList").on("click", function() {
 				self.location = "list";
 			});

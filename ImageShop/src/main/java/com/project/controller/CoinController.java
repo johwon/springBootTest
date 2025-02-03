@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.common.security.domain.CustomUser;
@@ -33,6 +34,13 @@ public class CoinController {
 		chargeCoin.setAmount(1000);
 
 		model.addAttribute(chargeCoin);
+	}
+
+	// 코인 충전 페이지
+	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
+	@PreAuthorize("hasRole('ROLE_MEMBER')")
+	public void checkoutForm(@RequestParam("amount") String amount, Model model) throws Exception {
+		model.addAttribute("amount", amount);
 	}
 
 	// 코인 충전 처리
@@ -65,7 +73,15 @@ public class CoinController {
 
 	// 코인 충전 성공 페이지
 	@RequestMapping(value = "/success", method = RequestMethod.GET)
-	public String success() throws Exception {
+	public String success(int amount, RedirectAttributes rttr, Authentication authentication) throws Exception {
+		CustomUser customUser = (CustomUser) authentication.getPrincipal();
+		Member member = customUser.getMember();
+		int userNo = member.getUserNo();
+		ChargeCoin chargeCoin = new ChargeCoin();
+		chargeCoin.setUserNo(userNo);
+		chargeCoin.setAmount(amount);
+		service.charge(chargeCoin);
+
 		return "coin/success";
 	}
 
